@@ -6,8 +6,8 @@
   <title>Автомастерская Легион</title>
   <style>
     body {
-      /* ИСПРАВЛЕН ПУТЬ: убрали ../ */
-      background-image: url('risunki/fon%20form/glav%20forma/fon%20glav%20form.jpg');
+      /* ИСПРАВЛЕН ПУТЬ: убрали ../ и заменили пробелы на подчеркивания */
+      background-image: url('risunki/fon_form/glav_forma/fon_glav_form.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -789,8 +789,8 @@
       {
         id: 1,
         title: "1. Ремонт ходовой",
-        // ИСПРАВЛЕН ПУТЬ: убрали ../
-        img: "risunki/iconci%20uslugi/carta%201/xodov.JPG",
+        // ИСПРАВЛЕН ПУТЬ: заменили пробелы на подчеркивания
+        img: "risunki/iconci_uslugi/carta_1/xodov.JPG",
         items: [
           { name: "Диагностика подвески", type: "работа", price: 800 },
           { name: "Рычаг подвески в сборе", type: "запчасть", price: 4200 },
@@ -800,7 +800,7 @@
       {
         id: 2,
         title: "2. Ремонт ДВС",
-        img: "risunki/iconci%20uslugi/carta%202/dvc.JPG",
+        img: "risunki/iconci_uslugi/carta_2/dvc.JPG",
         items: [
           { name: "Компьютерная диагностика двигателя", type: "работа", price: 1200 },
           { name: "Комплект свечей зажигания", type: "запчасть", price: 3200 },
@@ -810,7 +810,7 @@
       {
         id: 3,
         title: "3. Ремонт тормозной системы",
-        img: "risunki/iconci%20uslugi/carta%203/tormaz.JPG",
+        img: "risunki/iconci_uslugi/carta_3/tormaz.JPG",
         items: [
           { name: "Колодки тормозные передние", type: "запчасть", price: 2800 },
           { name: "Диск тормозной (шт)", type: "запчасть", price: 3500 },
@@ -820,7 +820,7 @@
       {
         id: 4,
         title: "4. Ремонт повреждений кузова",
-        img: "risunki/iconci%20uslugi/carta%204/kuzov.JPG",
+        img: "risunki/iconci_uslugi/carta_4/kuzov.JPG",
         items: [
           { name: "Подбор автоэмали", type: "работа", price: 1000 },
           { name: "Материалы (грунт, краска, лак)", type: "запчасть", price: 6500 },
@@ -830,7 +830,7 @@
       {
         id: 5,
         title: "5. Программирование датчиков",
-        img: "risunki/iconci%20uslugi/carta%205/progdat.JPG",
+        img: "risunki/iconci_uslugi/carta_5/progdat.JPG",
         items: [
           { name: "Прошивка ЭБУ", type: "работа", price: 5000 },
           { name: "Чип-ключ новый", type: "запчасть", price: 3000 },
@@ -840,7 +840,7 @@
       {
         id: 6,
         title: "6. Ремонт электрики",
-        img: "risunki/iconci%20uslugi/carta%206/electro.JPG",
+        img: "risunki/iconci_uslugi/carta_6/electro.JPG",
         items: [
           { name: "Поиск обрыва цепи", type: "работа", price: 1500 },
           { name: "Блок предохранителей", type: "запчасть", price: 2500 },
@@ -850,7 +850,7 @@
       {
         id: 7,
         title: "7. Замена масла и жидкостей",
-        img: "risunki/iconci%20uslugi/carta%207/maclo.JPG",
+        img: "risunki/iconci_uslugi/carta_7/maclo.JPG",
         modalTitle: "Замена масла в ДВС", 
         items: [
           { name: "Масло моторное 5W-40 (4л)", type: "запчасть", price: 4500 },
@@ -861,7 +861,7 @@
       {
         id: 8,
         title: "8. Заправка кондиционера",
-        img: "risunki/iconci%20uslugi/carta%208/zapravka.JPG",
+        img: "risunki/iconci_uslugi/carta_8/zapravka.JPG",
         items: [
           { name: "Диагностика системы А/С", type: "работа", price: 1000 },
           { name: "Фреон R134a (гр)", type: "запчасть", price: 1800 },
@@ -969,19 +969,19 @@
       if (pageId === 'home') {
         document.getElementById('nav-home').classList.add('active');
         // ИСПРАВЛЕН ПУТЬ
-        document.body.style.backgroundImage = "url('risunki/fon%20form/glav%20forma/fon%20glav%20form.jpg')";
+        document.body.style.backgroundImage = "url('risunki/fon_form/glav_forma/fon_glav_form.jpg')";
         document.getElementById('page-home').style.display = 'block';
       } 
       else if (pageId === 'about') {
         document.getElementById('nav-about').classList.add('active');
         // ИСПРАВЛЕН ПУТЬ
-        document.body.style.backgroundImage = "url('risunki/fon%20form/o%20nas%20forma/o%20nas.JPG')";
+        document.body.style.backgroundImage = "url('risunki/fon_form/o_nas_forma/o_nas.JPG')";
         document.getElementById('page-about').style.display = 'block';
       }
       else if (pageId === 'services') {
         document.getElementById('nav-services').classList.add('active');
         // ИСПРАВЛЕН ПУТЬ
-        document.body.style.backgroundImage = "url('risunki/fon%20form/uslugi%20forma/usluga.JPG')";
+        document.body.style.backgroundImage = "url('risunki/fon_form/uslugi_forma/usluga.JPG')";
         document.getElementById('page-services').style.display = 'block';
         renderServices();
       }
@@ -989,7 +989,7 @@
         navMenu.style.display = 'none'; 
         logo.style.display = 'none';
         // ИСПРАВЛЕН ПУТЬ
-        document.body.style.backgroundImage = "url('risunki/fon%20form/zayavka%20fon/fon%20zayavka.JPG')";
+        document.body.style.backgroundImage = "url('risunki/fon_form/zayavka_fon/fon_zayavka.JPG')";
         document.getElementById('page-order').style.display = 'block';
       }
     }
