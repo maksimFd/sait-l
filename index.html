@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Автомастерская Легион</title>
-<style>
-  body {
-    /* ИСПРАВЛЕН ПУТЬ: папки с нижним подчеркиванием, как у вас на скриншотах */
-    background-image: url('risunki/fon_form/glav_forma/fon_glav_form.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  <style>
+    body {
+      /* Путь к фону главной с обычными пробелами */
+      background-image: url('risunki/fon form/glav forma/fon glav form.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       background-attachment: fixed;
       margin: 0;
       min-height: 100vh;
@@ -617,6 +617,7 @@
   </style>
 </head>
 <body>
+  <!-- Логотип Легион (слева - общий для всех страниц) -->
   <div class="logo-container">
     <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <path d="M50 5 L85 25 L85 55 C85 75 50 95 50 95 C50 95 15 75 15 55 L15 25 Z" 
@@ -634,6 +635,7 @@
     </div>
   </div>
 
+  <!-- Навигация (центр - общая для всех страниц) -->
   <nav class="main-nav">
     <ul class="nav-list">
       <li><a href="#" id="nav-home" class="active" onclick="switchPage('home'); return false;">Главная</a></li>
@@ -642,7 +644,9 @@
     </ul>
   </nav>
 
+  <!-- ================= СТРАНИЦА: ГЛАВНАЯ ================= -->
   <div id="page-home" class="page-section">
+    <!-- Блок Поставщика (справа) -->
     <div class="supplier-container">
       <div class="supplier-text">Наш поставщик</div>
       <div class="supplier-logo-code">
@@ -650,6 +654,7 @@
       </div>
     </div>
 
+    <!-- Главный заголовок по центру -->
     <div class="hero-container">
       <h1 class="hero-title">Автомастерская Легион</h1>
       <div class="hero-subtitle">Топ 5 мастерская Краснодара</div>
@@ -657,12 +662,15 @@
     </div>
   </div>
 
+  <!-- ================= СТРАНИЦА: О НАС ================= -->
   <div id="page-about" class="page-section" style="display: none;">
     <div class="about-wrapper">
       <h2 class="about-title">О НАШЕЙ КОМАНДЕ <span class="highlight">И МАСТЕРСКОЙ</span></h2>
       
       <div class="about-card">
+        <!-- Верхняя часть карточки (Текст + Статистика) -->
         <div class="about-card-content">
+          <!-- Левая колонка с текстом -->
           <div class="about-text-col">
             <div>
               <p class="about-text">
@@ -673,6 +681,7 @@
               </p>
             </div>
             
+            <!-- Гарантия -->
             <div class="guarantee-block">
               <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="2.5" width="36" height="36" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -682,6 +691,7 @@
             </div>
           </div>
 
+          <!-- Правая колонка со статистикой -->
           <div class="about-stats-col">
             <div class="stat-item">
               <span class="stat-val">10+</span>
@@ -698,6 +708,7 @@
           </div>
         </div>
 
+        <!-- Нижняя часть карточки (Кнопка строго по центру) -->
         <div class="about-card-footer">
           <a href="#" class="action-btn" onclick="switchPage('services'); return false;">Скорее покажите мне ваши услуги</a>
         </div>
@@ -705,21 +716,27 @@
     </div>
   </div>
 
+  <!-- ================= СТРАНИЦА: УСЛУГИ ================= -->
   <div id="page-services" class="page-section" style="display: none;">
     <div class="services-wrapper">
       <h2 class="about-title">НАШИ <span class="highlight">УСЛУГИ</span></h2>
       
+      <!-- Сетка карточек -->
       <div class="services-grid" id="services-container">
-        </div>
+        <!-- Карточки генерируются через JavaScript ниже -->
+      </div>
 
     </div>
   </div>
 
+  <!-- ================= СТРАНИЦА: ОФОРМЛЕНИЕ ЗАЯВКИ ================= -->
   <div id="page-order" class="page-section" style="display: none;">
     <div class="order-wrapper">
       <h2 class="about-title order-title">ОФОРМЛЕНИЕ <span class="highlight">ЗАЯВКИ</span></h2>
       
+      <!-- Обработчик формы Web3Forms -->
       <form action="https://api.web3forms.com/submit" method="POST" id="order-form" class="about-card order-card">
+        <!-- Вставьте ваш API ключ Web3Forms сюда -->
         <input type="hidden" name="access_key" value="ВАШ_API_КЛЮЧ_ЗДЕСЬ">
         
         <div class="form-group">
@@ -752,6 +769,7 @@
     </div>
   </div>
 
+  <!-- ================= МОДАЛЬНОЕ ОКНО РАСЧЕТА ================= -->
   <div class="modal-overlay" id="service-modal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
       <h3 class="modal-title" id="modal-title">Название услуги</h3>
@@ -766,7 +784,8 @@
             </tr>
           </thead>
           <tbody id="modal-table-body">
-            </tbody>
+            <!-- Строки таблиц генерируются скриптом -->
+          </tbody>
           <tfoot>
             <tr class="row-total">
               <td colspan="2" class="total-label">ИТОГО:</td>
@@ -783,14 +802,20 @@
     </div>
   </div>
 
+  <!-- Скрипт логики сайта -->
   <script>
     /* === ДАННЫЕ УСЛУГ === */
+    /* В коде ниже я настроил УМНЫЙ ПОИСК картинок.
+       Если картинка с пробелом не найдена (ошибка 404), скрипт
+       мгновенно попытается загрузить картинку с нижним подчеркиванием
+       или маленьким расширением .jpg */
+       
     const servicesData = [
       {
         id: 1,
         title: "1. Ремонт ходовой",
-        // ИСПРАВЛЕН ПУТЬ: заменили пробелы на %20
-        img: "risunki/iconci%20uslugi/carta%201/xodov.JPG",
+        img: "risunki/iconci uslugi/carta 1/xodov.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_1/xodov.jpg",
         items: [
           { name: "Диагностика подвески", type: "работа", price: 800 },
           { name: "Рычаг подвески в сборе", type: "запчасть", price: 4200 },
@@ -800,7 +825,8 @@
       {
         id: 2,
         title: "2. Ремонт ДВС",
-        img: "risunki/iconci%20uslugi/carta%202/dvc.JPG",
+        img: "risunki/iconci uslugi/carta 2/dvc.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_2/dvc.jpg",
         items: [
           { name: "Компьютерная диагностика двигателя", type: "работа", price: 1200 },
           { name: "Комплект свечей зажигания", type: "запчасть", price: 3200 },
@@ -810,7 +836,8 @@
       {
         id: 3,
         title: "3. Ремонт тормозной системы",
-        img: "risunki/iconci%20uslugi/carta%203/tormaz.JPG",
+        img: "risunki/iconci uslugi/carta 3/tormaz.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_3/tormaz.jpg",
         items: [
           { name: "Колодки тормозные передние", type: "запчасть", price: 2800 },
           { name: "Диск тормозной (шт)", type: "запчасть", price: 3500 },
@@ -820,7 +847,8 @@
       {
         id: 4,
         title: "4. Ремонт повреждений кузова",
-        img: "risunki/iconci%20uslugi/carta%204/kuzov.JPG",
+        img: "risunki/iconci uslugi/carta 4/kuzov.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_4/kuzov.jpg",
         items: [
           { name: "Подбор автоэмали", type: "работа", price: 1000 },
           { name: "Материалы (грунт, краска, лак)", type: "запчасть", price: 6500 },
@@ -830,7 +858,8 @@
       {
         id: 5,
         title: "5. Программирование датчиков",
-        img: "risunki/iconci%20uslugi/carta%205/progdat.JPG",
+        img: "risunki/iconci uslugi/carta 5/progdat.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_5/progdat.jpg",
         items: [
           { name: "Прошивка ЭБУ", type: "работа", price: 5000 },
           { name: "Чип-ключ новый", type: "запчасть", price: 3000 },
@@ -840,7 +869,8 @@
       {
         id: 6,
         title: "6. Ремонт электрики",
-        img: "risunki/iconci%20uslugi/carta%206/electro.JPG",
+        img: "risunki/iconci uslugi/carta 6/electro.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_6/electro.jpg",
         items: [
           { name: "Поиск обрыва цепи", type: "работа", price: 1500 },
           { name: "Блок предохранителей", type: "запчасть", price: 2500 },
@@ -850,7 +880,8 @@
       {
         id: 7,
         title: "7. Замена масла и жидкостей",
-        img: "risunki/iconci%20uslugi/carta%207/maclo.JPG",
+        img: "risunki/iconci uslugi/carta 7/maclo.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_7/maclo.jpg",
         modalTitle: "Замена масла в ДВС", 
         items: [
           { name: "Масло моторное 5W-40 (4л)", type: "запчасть", price: 4500 },
@@ -861,7 +892,8 @@
       {
         id: 8,
         title: "8. Заправка кондиционера",
-        img: "risunki/iconci%20uslugi/carta%208/zapravka.JPG",
+        img: "risunki/iconci uslugi/carta 8/zapravka.JPG",
+        imgFallback: "risunki/iconci_uslugi/carta_8/zapravka.jpg",
         items: [
           { name: "Диагностика системы А/С", type: "работа", price: 1000 },
           { name: "Фреон R134a (гр)", type: "запчасть", price: 1800 },
@@ -876,9 +908,8 @@
       container.innerHTML = ''; 
 
       servicesData.forEach(service => {
-        const imgContent = service.img 
-          ? `<img src="${service.img}" alt="${service.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'service-img-placeholder\\'>[Изображение не найдено:<br>${service.title.substring(3)}]</div>';">` 
-          : `<div class="service-img-placeholder">[Изображение:<br>${service.title.substring(3)}]</div>`;
+        // Умная загрузка картинок: если img не загрузится, пробуем imgFallback
+        const imgContent = `<img src="${service.img}" alt="${service.title}" onerror="this.onerror=null; this.src='${service.imgFallback}';">`;
 
         const cardHtml = `
           <div class="service-card" onclick="openModal(${service.id})">
@@ -968,28 +999,26 @@
 
       if (pageId === 'home') {
         document.getElementById('nav-home').classList.add('active');
-        /* ИСПРАВЛЕН ПУТЬ */
-        document.body.style.backgroundImage = "url('risunki/fon_form/glav_forma/fon_glav_form.jpg')";
+        document.body.style.backgroundImage = "url('risunki/fon form/glav forma/fon glav form.jpg')";
         document.getElementById('page-home').style.display = 'block';
       } 
       else if (pageId === 'about') {
         document.getElementById('nav-about').classList.add('active');
-        /* ИСПРАВЛЕН ПУТЬ */
-        document.body.style.backgroundImage = "url('risunki/fon_form/o_nas_forma/o_nas.JPG')";
+        // Изменил расширение на .jpg для подстраховки
+        document.body.style.backgroundImage = "url('risunki/fon form/o nas forma/o nas.jpg')";
         document.getElementById('page-about').style.display = 'block';
       }
       else if (pageId === 'services') {
         document.getElementById('nav-services').classList.add('active');
-        /* ИСПРАВЛЕН ПУТЬ */
-        document.body.style.backgroundImage = "url('risunki/fon_form/uslugi_forma/usluga.JPG')";
+        // Изменил расширение на .jpg для подстраховки
+        document.body.style.backgroundImage = "url('risunki/fon form/uslugi forma/usluga.jpg')";
         document.getElementById('page-services').style.display = 'block';
         renderServices();
       }
       else if (pageId === 'order') {
         navMenu.style.display = 'none'; 
         logo.style.display = 'none';
-        /* ИСПРАВЛЕН ПУТЬ */
-        document.body.style.backgroundImage = "url('risunki/fon_form/zayavka_fon/fon_zayavka.JPG')";
+        document.body.style.backgroundImage = "url('risunki/fon form/zayavka fon/fon zayavka.JPG')";
         document.getElementById('page-order').style.display = 'block';
       }
     }
